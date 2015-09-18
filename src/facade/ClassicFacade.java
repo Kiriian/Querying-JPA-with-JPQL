@@ -106,12 +106,12 @@ public class ClassicFacade
         }
     }
 
-    public Employee getEmployeeMaxCustomer()
+    public List<Employee> getEmployeeMaxCustomer()
     {
         EntityManager em = emf.createEntityManager();
         try
         {
-            Employee emp = em.createQuery("SELECT e FROM Employee e ORDER BY e.extension", Employee.class).setMaxResults(1).getSingleResult();
+            List<Employee> emp = em.createQuery("SELECT e FROM Employee e WHERE(size(e.customerCollection)) = SELECT MAX(size(ee.customerCollection)) FROM Employee ee").getResultList();
             return emp;
         } finally
         {

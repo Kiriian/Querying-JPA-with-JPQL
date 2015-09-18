@@ -25,7 +25,7 @@ public class Tester
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("classicmodelsPU");
         ClassicFacade cf = new ClassicFacade(emf);
         
-        Employee emp = new Employee(1704, "Møller", "Jeanette", "x606", "thing@live.dk", "Sales rep");
+        Employee emp = new Employee(1716, "Møller", "Jeanette", "x606", "thing@live.dk", "Sales rep");
         System.out.println(cf.createEmployee(emp).toString());
 
         System.out.println(cf.updateCustomer(cf.findCustomer(103)).toString());
@@ -34,7 +34,7 @@ public class Tester
         
         System.out.println(cf.getCustomerInCity("Barcelona").toString());
         
-        System.out.println(cf.getEmployeeMaxCustomer().toString());
+        System.out.println(cf.getEmployeeMaxCustomer());
         
         System.out.println(cf.getOrdersOnHold().toString());
         
